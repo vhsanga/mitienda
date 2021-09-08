@@ -1,0 +1,28 @@
+extends ./externalLayout
+block contenido
+  .login-box
+    .login-logo
+      b nodo
+      | Clic
+    // /.login-logo
+    .login-box-body
+      if message.length > 0
+              p.login-box-msg(style="color: #ec7853; font-size: 15px;")= message
+      else
+              p.login-box-msg Ingrese sus credenciales para acceder al sistema
+      form(action='login', method='post')     
+        include ./partials/_formLogin.jade
+      |     
+      br
+      button(type="button" class="btn btn-link" data-toggle="modal" data-target="#modalRecuperarClave")
+        |¿Olvidó su contraseña?
+      br
+      |     
+  include ./partials/recuperarClave.jade
+
+block javascript
+  script(src='/bower_components/moment/min/moment.min.js')
+  script(src='/bower_components/moment/min/moment-with-locales.min.js')
+  script(src="/js-app/util.js")
+  script(src="/js-app/seguridad/recuperarClave/recClave.init.js")
+  script(src="/js-app/seguridad/recuperarClave/recClave.fn.js")

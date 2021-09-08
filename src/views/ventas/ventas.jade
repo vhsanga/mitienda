@@ -1,0 +1,61 @@
+extends ../layout
+block contenido 
+  section.content-header
+    h1
+      | Mis Ventas
+    |       
+
+  // Main content
+  section.content.container-fluid
+
+    .row
+      div.col-xs-12
+        div.box
+          div.box-header
+            i.fa.fa-edit
+            h3.box-title  Estadistica de Ventas Netas De esta Semana
+          div.box-body
+            .row
+              .col-md-12.col-sx-12.text-center
+                label.label.label-success#tituloReporteSemana
+                #revenue-chart-semana.chart
+        div.box
+          div.box-header
+            i.fa.fa-edit
+            h3.box-title  Estadistica de Ventas Netas Clasificadas por Mes
+          div.box-body
+            .row
+              .col-md-12.col-sx-12.text-center
+                label.label.label-success#tituloReporteMes
+                #revenue-chart.chart
+
+        div.box
+          div.box-header
+            i.fa.fa-edit
+            h3.box-title  Ver Ventas Netas Clasificadas por Mes
+          div.box-body
+            .row
+              .col-md-6
+                div#areaVentasMeses
+              .col-md-6
+                div#calendarioVentas
+
+  include ../partials/_ventas.jade
+
+block javascript
+  link(rel="stylesheet" href="/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css")
+  script(src="/bower_components/datatables.net/js/jquery.dataTables.min.js")
+  script(src="/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js")
+  link(rel="stylesheet" href="/dist/css/datatables.min.css")    
+  script(src="/bower_components/raphael/raphael.min.js")
+  script(src="/bower_components/morris.js/morris.min.js")  
+  link(rel="stylesheet" href="/bower_components/morris.js/morris.css")  
+  script(src="/bower_components/fullcalendar/dist/fullcalendar.min.js")
+  script(src="/bower_components/fullcalendar/dist/locale/es.js")
+  link(rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.min.css")
+  link(rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print")
+
+  script(src="/js-app/ventas/ventas.fn.js")
+  script(src="/js-app/ventas/ventas.init.js")
+  script(src="/js-app/ventas/ventas.gf.js")
+  script(src="/js-app/ventas/ventas.calendar.js")

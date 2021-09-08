@@ -1,0 +1,283 @@
+#modalCrearCompra.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        |                 
+        h4.modal-title Ingresar un Producto  
+      |               
+      .modal-body
+        form#fomrCrearCompra
+          .form-group
+            label(for='nombrePd') Proveedor:
+            select#ProveedorPd.form-control
+            small
+              a(href="#")#open-crear-prov crear proveedor 
+          .form-group
+            label(for='nombrePd') Nombre del Producto:
+            input#nombrePd.form-control(type='text', placeholder=' Nombre del Producto')
+            input#idPd(type='hidden')
+            input#idCp(type='hidden')
+          .form-group
+            label(for='detallePd') Detalle del Producto:
+            input#detallePd.form-control(type='text', placeholder='Marca, color, tamaño') 
+          
+          .form-group.row(style="background: #e0e0e0;")
+            .col-md-2
+              label(for='cantidadPd') Cantidad Comprada:
+              input#cantidadPd.form-control(type='number', placeholder='0' onkeyup="calcularPUC('')") 
+            .col-md-3
+              label(for='puc') Precio Unitario Compra:
+              input#puc.form-control(type='number', placeholder='0' onkeyup="calcularPTC('')")
+            .col-md-3
+              label(for='precioConpraPd') Precio total de compra:
+              input#precioConpraPd.form-control(type='number', placeholder='0.00' onkeyup="calcularPUC('')")
+            .col-md-4
+              div(style="margin-top: 35px;")
+                input#incluyeIvaPd(type="checkbox" checked style="-ms-transform: scale(2); -moz-transform: scale(2); -webkit-transform: scale(2); -o-transform: scale(2);") 
+                label(style="margin-left: 10px;") Incluye IVA (12%)
+
+          .form-group.row
+            .col-md-4
+              label(for='pvu') Precio Venta Unitario
+              input#pvu.form-control(type='number', placeholder='En cuando va a vendar este producto?',  onkeyup="calcularPorcentaje('')"  style="font-size: 17px; background: #d8eac2;")
+            .col-md-4
+              label(for='porcentajeGanancia' ) Porcentaje de Ganancia:
+              input#porcentajeGanancia.form-control(type='number', placeholder='%' onkeyup="calcularPrecioVentaUnit('')" style="font-size: 15px;") 
+
+          .form-group.row
+            .col-md-4
+              label(for='fechaCompraPd') Fecha de Compra:
+              input#fechaCompraPd.form-control(type='text')
+            .col-md-4
+              label(for='fechaCompraPd') Num Factura: 
+              input#referenciaPd.form-control(type='text')
+      .modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal')
+          i.fa.fa-close
+          | &nbsp; &nbsp; Cancelar                 
+        button#btnGuardarCompra.btn.btn-primary(type='button') 
+          i.fa.fa-check
+          | &nbsp; &nbsp; Guardar Producto
+    // /.modal-content
+  // /.modal-dialog
+// /.modal 
+
+
+#modalEditarCompra.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        |                 
+        h4.modal-title Datos del Producto
+      |               
+      .modal-body
+        form#fomEditarCompra
+          .form-group
+            label(for='nombrePd_') Proveedor:
+            select#ProveedorPd_.form-control
+          .form-group
+            label(for='nombrePd_') Nombre del Producto:
+            input#nombrePd_.form-control(type='text', placeholder=' Nombre del Producto')
+            input#idPd_.form-control(type='hidden')
+            input#idCp_.form-control(type='hidden')
+          .form-group
+            label(for='detallePd_') Detalle del Producto:
+            input#detallePd_.form-control(type='text', placeholder='Marca, color, tamaño') 
+          
+          .form-group.row(style="background: #e0e0e0;")
+            .col-md-2
+              label(for='cantidadPd_') Cantidad Comprada:
+              input#cantidadPd_.form-control(type='number', disabled  placeholder='0' onkeyup="calcularPUC('_')") 
+            .col-md-3
+              label(for='puc_') Precio Unitario Compra:
+              input#puc_.form-control(type='number', placeholder='0' onkeyup="calcularPTC('_')")
+            .col-md-3
+              label(for='precioConpraPd_') Precio total de compra:
+              input#precioConpraPd_.form-control(type='number', placeholder='0.00' onkeyup="calcularPUC('_')")
+            .col-md-4
+              div(style="margin-top: 35px;")
+                input#incluyeIvaPd_(type="checkbox"  style="-ms-transform: scale(2); -moz-transform: scale(2); -webkit-transform: scale(2); -o-transform: scale(2);") 
+                label(style="margin-left: 10px;") Incluye IVA (12%)
+
+          .form-group.row
+            .col-md-8
+              .row
+                .col-md-6
+                  label(for='pvu_' ) Precio Venta Unitario
+                  input#pvu_.form-control(type='number', placeholder='En cuando va a vendar este producto?',  onkeyup="calcularPorcentaje('_')" style="font-size: 17px; background: #d8eac2;")
+                .col-md-6
+                  label(for='porcentajeGanancia_' ) Porcentaje de Ganancia:
+                  input#porcentajeGanancia_.form-control(type='number', placeholder='%' onkeyup="calcularPrecioVentaUnit('_')" style="font-size: 15px;") 
+              .row
+                .col-md-6
+                  label(for='fechaCompraPd_') Fecha de Compra:
+                  input#fechaCompraPd_.form-control(type='text')
+                .col-md-6
+                  label(for='referenciaPd_') Num Factura: 
+                  input#referenciaPd_.form-control(type='text')
+
+            .col-md-4
+                div#divCD_
+                div#noCodBar_(style=" background: #ecebeb; border: solid 2px #989697; padding: 4px; border-style: dashed; text-align: center; margin-top: 35px;")
+                  span No tiene código de barra
+                  br
+                a(href='#' onclick="setCodigoBarra()") Generar Código Barra
+             
+                  
+            
+      .modal-footer
+        button.btn.bg-purple.pull-left(type='button' onclick="imprimirBarCode('_')") 
+          i.fa.fa-print
+          | &nbsp; &nbsp; Imprimir Código de Barra
+        button.btn.btn-default(type='button', data-dismiss='modal')
+          i.fa.fa-close
+          | &nbsp; &nbsp; Cerrar                 
+        button#btnEditarCompra.btn.btn-primary(type='button') 
+          i.fa.fa-check
+          | &nbsp; &nbsp; Guardar Cambios
+    // /.modal-content
+  // /.modal-dialog
+// /.modal
+
+
+
+#modalGenerarCodigoBarra.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        |                 
+        h4.modal-title Código de Barra
+      |               
+      .modal-body
+        h4 Se ha generado el siguiente codigo de Barra: 
+        p 
+          span Producto: 
+          span#productoCD
+        br
+        div#divCD
+      .modal-footer                
+        button.btn.btn-primary(type='button' onclick="imprimirBarCode('')") 
+          i.fa.fa-print
+          | &nbsp; &nbsp; IMPRIMIR
+    // /.modal-content
+  // /.modal-dialog
+// /.modal
+
+
+#modalMostrarCompra.modal.fade
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        |                 
+        h4.modal-title#tituloMostrarCompra
+      |               
+      .modal-body
+        table#tablaComprasMes.table.table-bordered.table-hover
+              thead.tabla_default
+                tr
+                  th #
+                  th Producto
+                  th Detalles
+                  th Cantidad comprada
+                  th Precio
+                  th Fecha Compra
+                  th Proveedor        
+                tbody
+      .modal-footer                
+        button.btn.btn-default(type='button', data-dismiss='modal') 
+          i.fa.fa-close
+          | &nbsp; &nbsp; Cerrar
+    // /.modal-content
+  // /.modal-dialog
+// /.modal
+
+#modalProductoXterminar.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        |                 
+        h4.modal-title Productos por Terminar
+      |               
+      .modal-body
+        ul#ulProductorXterminar.list-group
+      .modal-footer
+        button#btnImprimirProductosXterminar.btn.bg-purple(type='button') 
+          i.fa.fa-print
+          | &nbsp; &nbsp; Imprimir               
+        button.btn.btn-default(type='button', data-dismiss='modal') 
+          i.fa.fa-close
+          | &nbsp; &nbsp; Cerrar
+    // /.modal-content
+  // /.modal-dialog
+// /.modal
+
+
+#modalAddStocks.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        |                 
+        h4.modal-title Añadir Stocks
+      |               
+      .modal-body
+        h4#productoAddStocks
+        h4 Disponibles:
+          span(style="background: #4CAF50; padding: 4px; color: white; border-radius: 17px; margin-left: 7px;")#stockActualAddStocks
+
+        form#formAddStocks 
+          input#idPd_a.form-control(type='hidden')
+          input#idCp_a.form-control(type='hidden')         
+          .form-group.row(style="background: #e0e0e0;")
+            .col-md-4
+              label(for='cantidadPd_a') Cantidad Comprada:
+              input#cantidadPd_a.form-control(type='number', placeholder='0' onkeyup="calcularPUC('_a')") 
+            .col-md-4
+              label(for='puc_a') Precio Unitario Compra:
+              input#puc_a.form-control(type='number', placeholder='0' onkeyup="calcularPTC('_a')")
+            .col-md-4
+              label(for='precioConpraPd_a') Precio total de compra:
+              input#precioConpraPd_a.form-control(type='number', placeholder='0.00' onkeyup="calcularPUC('_a')")
+            .col-md-4(style="display:none")
+              div(style="margin-top: 35px;")
+                input#incluyeIvaPd_a(type="checkbox" checked style="-ms-transform: scale(2); -moz-transform: scale(2); -webkit-transform: scale(2); -o-transform: scale(2);") 
+                label(style="margin-left: 10px;") Incluye IVA (12%)
+
+
+          .form-group.row
+            .col-md-8
+              .row
+                .col-md-6
+                  label(for='pvu_a' ) Precio Venta Unitario
+                  input#pvu_a.form-control(type='number', placeholder='En cuando va a vendar este producto?',  onkeyup="calcularPorcentaje('_a')" style="font-size: 17px; background: #d8eac2;")
+                .col-md-6
+                  label(for='porcentajeGanancia_a' ) Porcentaje de Ganancia:
+                  input#porcentajeGanancia_a.form-control(type='number', placeholder='%' onkeyup="calcularPrecioVentaUnit('_a')" style="font-size: 15px;") 
+              .row
+                .col-md-6
+                  label(for='fechaCompraPd_a') Fecha de Compra:
+                  input#fechaCompraPd_a.form-control(type='text')
+                .col-md-6
+                  label(for='referenciaPd_a') Num Factura: 
+                  input#referenciaPd_a.form-control(type='text')
+      .modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal')
+          i.fa.fa-close
+          | &nbsp; &nbsp; Cerrar                 
+        button#btnAddStocks.btn.btn-primary(type='button') 
+          i.fa.fa-check
+          | &nbsp; &nbsp; Guardar Cambios
+    // /.modal-content
+  // /.modal-dialog
+// /.modal

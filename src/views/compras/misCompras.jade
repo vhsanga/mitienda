@@ -1,0 +1,79 @@
+extends ../layout
+block contenido 
+  section.content-header
+    h1
+      | Inventario de Productos
+      
+   
+  // Main content
+  section.content.container-fluid
+    div.row
+      div.col-xs-12
+        div.box
+          div.box-header
+            button#openModal.btn.btn-success
+              i.fa.fa-plus
+              | &nbsp; &nbsp; Ingresar nuevo producto
+            &nbsp;&nbsp;&nbsp;
+            button#btnMostrarProdcutosXterminar.btn.btn-warning 
+              i.fa.fa-cube
+              i.fa.fa-warning
+              | &nbsp; &nbsp; Imprimir productos por Terminar 
+              span#nBtnTerminar
+          div.box-body
+            table#tablaCompras.table.table-bordered.table-hover
+              thead.tabla_default
+                tr
+                  th #
+                  th Producto
+                  th Detalles
+                  th Stock actual
+                  th PVP Actual por Unidad
+                  th Fecha Compra
+                  th Proveedor        
+                tbody
+            
+            span *** Los productos marcados de Rojo estan agotados o proximos a agotarse
+              
+            div#cbarsearea(style="display:none;")
+    .row
+      div.col-xs-12
+        div.box
+          div.box-header
+            i.fa.fa-edit
+            h3.box-title  Compras Clasificadas por Meses
+          div.box-body
+            .row
+              div.col-sm-3.col-xs-6.pull-left
+                div.description-block.border-right
+                  h5.description-header.totalCompras 
+                  span.description-text TOTAL INVERSION EN COMPRAS
+            hr
+            div#areaVentasMeses.row
+            #revenue-chart.chart
+
+                  
+
+            
+    include ../partials/_addCompras.jade
+    include ../partials/_addProveedor.jade
+    
+block javascript
+  
+  script(src="/bower_components/datatables.net/js/jquery.dataTables.min.js")
+  script(src="/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js")
+
+  script(src="../../bower_components/raphael/raphael.min.js")
+  script(src="../../bower_components/morris.js/morris.min.js")
+
+
+  link(rel="stylesheet" href="/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css")        
+  link(rel="stylesheet" href="/dist/css/datatables.min.css")        
+  link(rel="stylesheet" href="/bower_components/morris.js/morris.css")     
+  link(rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css") 	
+  script(src="/js-app/jquery-barcode.min.js")
+  script(src="/js-app/compras/compras.init.js")
+  script(src="/js-app/compras/compras.fn.js")
+  script(src="/js-app/compras/compras.gf.js")
+  script(src="/js-app/proveedor/proveedor.fn.js")
+  

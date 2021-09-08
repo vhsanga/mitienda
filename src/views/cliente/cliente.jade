@@ -1,0 +1,48 @@
+extends ../layout
+block contenido 
+  section.content-header
+    h1
+      | Cartera de Cientes
+    |       
+    ol.breadcrumb
+      li
+        a(href='#')
+          i.fa.fa-dashboard
+          |  Level
+      |         
+      li.active Here
+  // Main content
+  section.content.container-fluid   
+    div.row
+      div.col-xs-12
+        div.box
+          div.box-header
+            button#openModalCliente.btn.btn-success
+             i.fa.fa-plus
+             | &nbsp; &nbsp; Ingresar nuevo Cliente
+          div.box-body
+            .row
+              .col-md-1
+              .col-md-10
+                table#tablaClientes.table.table-bordered.table-hover
+                  thead.tabla_default
+                    tr
+                      th #
+                      th Nombres
+                      th Ci
+                      th Dirección
+                      th Teléfono      
+                      th Valor Vendido      
+                    tbody
+              .col-md-1
+            include ../partials/_addCliente.jade
+            include ../partials/_ventas.jade
+
+block javascript
+  script(src="/bower_components/datatables.net/js/jquery.dataTables.min.js")
+  script(src="/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js")  
+  link(rel="stylesheet" href="/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css")        
+  link(rel="stylesheet" href="/dist/css/datatables.min.css")       
+  script(src="/js-app/cliente/cliente.init.js")              
+  script(src="/js-app/cliente/cliente.fn.js")              
+  script(src="/js-app/ventas/ventas.fn.js")              

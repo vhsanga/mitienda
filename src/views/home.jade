@@ -1,0 +1,129 @@
+extends ./layout
+block contenido 
+        // Content Header (Page header)
+        section.content-header
+          h1
+            | Bienvenido.
+            small Página principal
+
+        // Main content
+        section.content
+          // Default box
+          .box
+            .box-header.with-border
+              h3.box-title Caja
+            .box-body
+              form#crearProductoForm(role='form')
+                .row
+                  .col-md-1
+                  .col-md-2
+                    .form-group
+                      label(for='pro-codigo-barra') cod barra:
+                      input#pro-codigo-barra.form-control(type='text', placeholder='---')
+                  .col-md-4
+                    .form-group
+                      label(for='pro-nombre') Producto:
+                      input#pro-nombre.form-control(type='text', placeholder='Ingrese el nombre del producto') 
+                    button#btn-crear-aux.btn.btn-link(type="button" style="display:none") No Existe dicho producto, clic aqui para crear
+                  .col-md-2
+
+              hr
+              .row
+                .col-md-2
+                .col-md-8
+                  table#factura.table.table-bordered.table-hover                    
+                      tr(style="background: #76d2a9;")
+                        th(style="width: 50px;") #
+                        th Producto
+                        th(style="width: 100px;") Cant
+                        th(style="width: 100px;") P. unitario
+                        th(style="width: 100px;") p. total
+                    
+                  div.pull-right(style="margin-right: 50px; margin-top: -20px;")
+                    b Total: &nbsp;
+                      span#sumaTotal(style="font-size: 19px;")
+                .col-md-8
+
+              .row#clienteForm(role='form' style="display:none;  padding: 21px;")
+                .col-md-2
+                .col-md-4
+                  .input-group                    
+                    input#cli-ci.form-control(type='text', placeholder='Cédula del cliente' style="font-size:17px;")
+                    input#cli-id(type='hidden' value="0")
+                    span.input-group-btn
+                      button#btn-buscar-cli.btn.bg-olive.btn-flat(type="button")
+                        i.fa.fa-search
+                        | &nbsp;&nbsp; Buscar Cliente
+                .col-md-1
+                .col-md-2
+                  button#addToFactura.btn.bg-olive.btn-flat(type="button")
+                    i.fa.fa-hand-pointer-o
+                    | &nbsp;&nbsp; Venta A Consumidor Final                   
+
+
+              .ajax-content
+            // /.box-body
+
+
+
+          
+          #modalPreventa.modal.fade(role="dialog" tabindex="-1" aria-hidden="true")
+            .modal-dialog.modal-dialog-centered
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                  |                 
+                  h4.modal-title Confirmar Venta
+                |               
+                .modal-body
+                  div(style="background: #ececec; padding: 8px;")
+                    br
+                    label Cédula: 
+                    span#cli-ced(style="margin-left: 10px;  font-size: 21px;")
+                    br
+                    label Cliente: 
+                    span#cli-nombre(style="margin-left: 10px;  font-size: 24px;")
+                    button#btn-open-corregir-cli.bnt.btn-info.pull-right.btn-sm(type="button") Corregir Datos 
+                    br
+                    label Direccion: 
+                    span#cli-direccion(style="margin-left: 10px;  font-size: 21px;")
+                    br
+                    label Teléfono: 
+                    span#cli-telefono(style="margin-left: 10px;  font-size: 21px;")
+                    br
+                    label email: 
+                    span#cli-email(style="margin-left: 10px;  font-size: 21px;")
+
+                  div
+                    br
+                    label Valor a Cobrar:
+                    span#conf_valor(style="margin-left: 10px;  font-size: 21px;")
+                    br
+                    label Valor Recibido:
+                    input#conf_valor_recibido(type='number', placeholder='0.00' onkeyup="calcularVuelto()" style="margin-left: 10px;  font-size: 24px; width: 104px;")           
+                    br
+                    label Vuelto:
+                    span#cnf_vuelto(style="margin-left: 10px;  font-size: 24px;")
+                .modal-footer
+                  button.btn.btn-default(type='button', data-dismiss='modal') Cancelar
+                  button#btnGuardarVenta.btn.btn-primary(type='button') GUARDAR VENTA
+
+          include ./partials/_addCliente.jade
+          include ./partials/_ventas.jade
+          include ./partials/_addCompras.jade
+
+block javascript
+  link(rel="stylesheet" href="/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css")
+  link(rel="stylesheet" href="/css-app/autocommplete.css")
+  script(src="/bower_components/datatables.net/js/jquery.dataTables.min.js")
+  script(src="/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js")
+  link(rel="stylesheet" href="/dist/css/datatables.min.css")    
+  
+  script(src="/js-app/cliente/cliente.fn.js")
+  script(src="/js-app/ventas/ventas.fn.js")
+  script(src="/js-app/productos/productos.fn.js")
+  script(src="/js-app/compras/compras.init.js")
+  script(src="/js-app/compras/compras.fn.js")
+  script(src="/js-app/home/home.init.js")
+  script(src="/js-app/home/home.fn.js")

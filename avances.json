@@ -1,0 +1,51 @@
+avances:{
+	"fecha":"2018-10-20", "acciones":[
+		"Login y Logout", 
+		"ingreso de compras (productos)", 
+		"mostrar lista de compras (productos)",
+		"editar una compra (producto)",
+		"grafico de compras clasificadas por mes",
+		"Generar el codigo de barra de un producto",
+		"Imprimir el codigo de barra de un producto(*******)",
+		"Realizar el proceso de venta, mostrar producto, buscar cliente, ingresa cliente,generar nota de venta"
+		"grafico de Estadistica de Ventas Netas De esta Semana",
+		"grafico de Estadistica de Ventas Netas Clasificadas por Mes",
+		"grafico de  Ventas Netas Clasificadas por Mes",
+		"Lista de ventas en una fecha determinada"
+		"mostra productos próximos a caducar"
+	],
+	"fecha":"2018-10-25", "acciones":[
+		"mostrar la factura de una venta", 
+		"Seguridad, mostrar un dialogo de login cuando la sesion haya caducado", 
+		"Editar la informacion del perfil de usuario", 
+		
+	],
+	"fecha":"2018-11-21", "acciones":[
+		"crear un produto en caso de que no exista en la lista en la pagina principal al momento de realizar la venta", 
+		"Editar los datos de usuario en el perfil", 
+		"cambiar el nomrbe de usuario y la contraseña", 
+		"Aumentar el campo id_usuario en la talba ventas, para poder saber las ventas que ha realizado un usuario",
+		"Imprimir y Reimprimir factura",
+		"pintar de rojo los porductos que estar por terminar su stock",
+		"Imprimir la lista de productos por terminar"
+		
+	],
+	"fecha":"2018-11-23", "acciones":[
+		"guardar registros historicos de compras tabla compras_historicos", 
+		"aumentar el stock de un producto, al aumentar un stock debe guardarse como historico, para ver las compras realizadas de un fututo, es decir para aumentar un stock se debe hacer mediante una compra", 
+		
+	],
+	"fecha":"2019-1-14", "acciones":[
+		"Ingresar y modificar proveedores /proveedor ", 
+		"ver las compras que se ha hecho a un proveedor /proveedor", 
+		"Atajos para realziar una venta",		
+	],
+	"fecha":"2019-3-29", "acciones":[
+		"Mostrar el porcentaje de compras y ventas del mes ", 
+		"Cambiar la contraseña ",
+		"PENDIENTE recuperar contraseña ",
+		"aumentar campo  ",
+				
+	]
+}
+}
